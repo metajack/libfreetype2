@@ -166,7 +166,7 @@ set_prefix(PFR_SRC src/pfr/
   pfrtypes.h
   )
 #type42
-set_prefix(T42 src/type42/
+set_prefix(T42_SRC src/type42/
   t42objs.h
   t42objs.c
   t42parse.h
@@ -312,6 +312,21 @@ set_prefix(LZW_SRC src/lzw/
   ftlzw.c
   ftzopen.h
   )
+#psaux
+set_prefix(PSAUX_SRC src/psaux/
+  psobjs.c
+  t1decode.c
+  t1cmap.c
+  afmparse.c
+  psconv.c
+  psauxmod.c
+)
+# psnames
+set_prefix(PSNAMES_SRC src/psnames/
+  psmodule.c
+  pspic.c
+)
+# ALL
 set(ALL_SRC
   ${BASE_SRC}
   ${TT_SRC}
@@ -321,6 +336,7 @@ set(ALL_SRC
   ${PFR_SRC}
   ${T42_SRC}
   ${FNT_SRC}
+  ${PCF_SRC}
   ${BDF_SRC}
   ${SFNT_SRC}
   ${AUTOF_SRC}
@@ -330,9 +346,10 @@ set(ALL_SRC
   ${CACHE_SRC}
   ${GZIP_SRC}
   ${LZW_SRC}
+  ${PSAUX_SRC}
+  ${PSNAMES_SRC}
   ${FREETYPE_H}
   )
-
 add_definitions(-DFT2_BUILD_LIBRARY)
 include_directories(include)
 add_library(freetype STATIC ${ALL_SRC})
